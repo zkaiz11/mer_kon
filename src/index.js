@@ -1,13 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { IoArrowBackOutline } from "react-icons/io5";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min";
+import { Button } from 'react-bootstrap';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+const Header = (title) => 
+  <>
+    <Button><IoArrowBackOutline />Back</Button>
+    <h2>{title.text}</h2>
+  </>;
+const WelcomeHeader = (title) => <><Header text="Welcome"/><p className='container-fluid'>{title.text}</p></>;
+
+const welcome = ReactDOM.createRoot(document.getElementById('welcome'));
+welcome.render(
   <React.StrictMode>
-    <App />
+    <WelcomeHeader text="Join the world's largest YouTube streaming"/>
+    <div id='form'>
+      <p id='confirming'>Already have an account?</p>
+      <App />
+    </div>
   </React.StrictMode>
 );
 
